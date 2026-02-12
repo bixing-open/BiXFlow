@@ -1,0 +1,44 @@
+name: merge_excel_files
+display_name: Excel File Merger
+description: Traverse a directory and merge all Excel files into a single Excel file
+
+inputSchema:
+  type: object
+  properties:
+    input_directory:
+      type: string
+      description: "Directory containing Excel files to merge"
+    output_file:
+      type: string
+      description: "Path to the output merged Excel file"
+      default: "./merged_output.xlsx"
+  required:
+    - input_directory
+
+steps:
+  - name: list_excel_files
+    tool: excel_processor_mcp/list_excel_files
+    inputs:
+      directory: "{{ input_directory }}"
+    outputs: excel_files
+
+  - name: merge_files
+    tool: excel_processor_mcp/merge_excel_files
+    inputs:
+      file_paths: "{{ excel_files.files }}"
+      output_path: "{{ output_file }}"
+      sheet_name: "MergedData"
+    outputs: merge_result
+    when: "{{ excel_files.status == 'success' and excel_files.count > 0 }}"
+
+  - name: generate_report
+    tool: report_generator_mcp/generator
+    inputs:
+      basic_stats: "{{ merge_result }}"
+      anomalies: {}
+      validation_result: 
+        valid: "{{ excel_files.count > 0 }}"
+        valid_count: "{{ excel_files.count }}"
+        total_count: "{{ excel_files.count }}"
+    outputs: final_report
+    when: "{{ excel_files.status == 'success' and excel_files.count > 0 }}"

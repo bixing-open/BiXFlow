@@ -1,0 +1,71 @@
+name: comprehensive_analysis
+display_name: Comprehensive Data Analysis
+description: Complete process of data cleaning, analysis, and report generation
+
+inputSchema:
+  type: object
+  properties:
+    raw_data:
+      type: array
+      description: "Raw data array"
+      default: []
+    validation_rules:
+      type: object
+      description: "Data validation rules"
+      default: {}
+    api_endpoints:
+      type: array
+      description: "List of API endpoints to monitor"
+      default: []
+  required:
+    - raw_data
+
+steps:
+  - name: validate_data
+    tool: data_processor_mcp/validator
+    inputs:
+      data: "{{ raw_data }}"
+      rules: "{{ validation_rules }}"
+    outputs: validation_result
+    when: "{{ raw_data | length > 0 }}"
+
+  - name: clean_data
+    tool: data_processor_mcp/cleaner
+    inputs:
+      raw_data: "{{ raw_data }}"
+      issues: "{{ validation_result.issues }}"
+    outputs: cleaned_data
+    when: "{{ validation_result.valid and validation_result.issues | length > 0 }}"
+
+  - name: analyze_data
+    tool: data_processor_mcp/analyzer
+    inputs:
+      data: "{{ cleaned_data | default(raw_data) }}"
+      metrics: ["count", "mean", "std", "min", "max"]
+    outputs: analysis_result
+
+  - name: check_api_status
+    tool: monitor_alert_mcp/api_checker
+    inputs:
+      endpoint: "{{ endpoint }}"
+      timeout: 30
+      expected_status: 200
+    foreach:
+      endpoint: "{{ api_endpoints }}"
+    outputs: api_status_results
+    when: "{{ api_endpoints | length > 0 }}"
+
+  - name: generate_comprehensive_report
+    tool: report_generator_mcp/generator
+    inputs:
+      basic_stats: "{{ analysis_result }}"
+      anomalies: "{{ analysis_result }}"
+      validation_result: "{{ validation_result }}"
+    outputs: final_report
+
+  - name: format_report
+    tool: report_generator_mcp/formatter
+    inputs:
+      report_data: "{{ final_report }}"
+      format: "markdown"
+    outputs: formatted_report

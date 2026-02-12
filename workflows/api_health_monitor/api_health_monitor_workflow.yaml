@@ -1,0 +1,47 @@
+name: api_health_monitor
+display_name: API Health Monitoring
+description: Monitor API endpoint health status, record response times and send alerts
+
+inputSchema:
+  type: object
+  properties:
+    api_endpoints:
+      type: array
+      description: "List of API endpoints to monitor"
+      default: []
+  required:
+    - api_endpoints
+
+steps:
+  - name: check_api_status
+    tool: monitor_alert_mcp/api_checker
+    inputs:
+      timeout: 30
+      expected_status: 200
+    foreach:
+      endpoint: "{{ api_endpoints }}"
+    outputs: api_status_results
+
+  - name: response_time_log
+    tool: monitor_alert_mcp/response_logger
+    inputs:
+      endpoint: "{{ endpoint }}"
+      sample_count: 3
+    outputs: performance_data
+    when: "{{ api_status_results.status == 'healthy' }}"
+
+  - name: generate_health_report
+    tool: report_generator_mcp/health_reporter
+    inputs:
+      status_results: "{{ api_status_results }}"
+      performance_data: "{{ performance_data }}"
+    outputs: health_report
+
+  - name: send_alerts
+    tool: monitor_alert_mcp/alert_sender
+    inputs:
+      report: "{{ health_report }}"
+      recipients: ["ops-team@company.com"]
+      severity: "warning"
+    when: "{{ health_report.system_status.overall_health != 'Healthy' }}"
+    on_fail: continue

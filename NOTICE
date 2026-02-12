@@ -1,0 +1,114 @@
+BiXFlow
+Copyright (c) 2026 BiXFlow Development Team
+
+This product includes software developed by the following third parties:
+
+================================================================================
+MIT License
+================================================================================
+- BiXFlow (0.9.0) - https://github.com/modelcontextprotocol/python-sdk
+- PyJWT (2.11.0) - https://github.com/jpadilla/pyjwt
+- PyYAML (6.0.3) - https://github.com/yaml/pyyaml
+- annotated-types (0.7.0) - https://github.com/python-annotated-types/annotated-types
+- anyio (4.12.1) - https://github.com/agronholm/anyio
+- attrs (25.4.0) - https://github.com/python-attrs/attrs
+- black (26.1.0) - https://github.com/psf/black
+- cffi (2.0.0) - https://github.com/python-cffi/cffi
+- et_xmlfile (2.0.0) - https://github.com/jmcnamara/et_xmlfile
+- flake8 (7.3.0) - https://github.com/pycqa/flake8
+- h11 (0.16.0) - https://github.com/python-hyper/h11
+- httpx-sse (0.4.3) - https://github.com/frankie567/httpx-sse
+- iniconfig (2.3.0) - https://github.com/ionelmc/python-iniconfig
+- jsonschema (4.26.0) - https://github.com/python-jsonschema/jsonschema
+- jsonschema-specifications (2025.9.1) - https://github.com/python-jsonschema/jsonschema-specifications
+- mccabe (0.7.0) - https://github.com/pycqa/mccabe
+- mcp (1.26.0) - https://github.com/modelcontextprotocol/python-sdk
+- mypy_extensions (1.1.0) - https://github.com/python/mypy_extensions
+- openpyxl (3.1.5) - https://github.com/pyexcel-web3/openpyxl
+- platformdirs (4.5.1) - https://github.com/platformdirs/platformdirs
+- pluggy (1.6.0) - https://github.com/pytest-dev/pluggy
+- pycodestyle (2.14.0) - https://github.com/pycqa/pycodestyle
+- pydantic (2.12.5) - https://github.com/pydantic/pydantic
+- pydantic-settings (2.12.0) - https://github.com/pydantic/pydantic-settings
+- pydantic_core (2.41.5) - https://github.com/pydantic/pydantic-core
+- pyflakes (3.4.0) - https://github.com/PyCQA/pyflakes
+- pytest (9.0.2) - https://github.com/pytest-dev/pytest
+- pytokens (0.4.1) - https://github.com/poets-ai/pytokens
+- referencing (0.37.0) - https://github.com/python-jsonschema/referencing
+- rpds-py (0.30.0) - https://github.com/crate-py/rpds
+- six (1.17.0) - https://github.com/benjaminp/six
+- typing-inspection (0.4.2) - https://github.com/s-knibbs/typing-inspection
+
+================================================================================
+BSD License
+================================================================================
+- Jinja2 (3.1.6) - https://github.com/pallets/jinja
+- Pygments (2.19.2) - https://github.com/pygments/pygments
+- colorama (0.4.6) - https://github.com/tartley/colorama
+- httpx (0.28.1) - https://github.com/encode/httpx
+- pandas (3.0.0) - https://github.com/pandas-dev/pandas
+- python-dateutil (2.9.0.post0) - https://github.com/dateutil/dateutil
+
+================================================================================
+BSD-3-Clause
+================================================================================
+- MarkupSafe (3.0.3) - https://github.com/pallets/markupsafe
+- click (8.3.1) - https://github.com/pallets/click
+- httpcore (1.0.9) - https://github.com/encode/httpcore
+- idna (3.11) - https://github.com/kjd/idna
+- pycparser (3.0) - https://github.com/eliben/pycparser
+- python-dotenv (1.2.1) - https://github.com/theskumar/python-dotenv
+- sse-starlette (3.2.0) - https://github.com/sysid/sse-starlette
+- starlette (0.52.1) - https://github.com/encode/starlette
+- uvicorn (0.40.0) - https://github.com/encode/uvicorn
+
+================================================================================
+Mozilla Public License 2.0 (MPL 2.0)
+================================================================================
+- certifi (2026.1.4) - https://github.com/certifi/python-certifi
+- pathspec (1.0.4) - https://github.com/cpburnz/python-pathspec
+
+================================================================================
+Apache-2.0 OR BSD-3-Clause
+================================================================================
+- cryptography (46.0.4) - https://github.com/pyca/cryptography
+
+================================================================================
+Apache-2.0 OR BSD-2-Clause
+================================================================================
+- packaging (26.0) - https://github.com/pypa/packaging
+
+================================================================================
+Apache-2.0
+================================================================================
+- pytest-asyncio (1.3.0) - https://github.com/pytest-dev/pytest-asyncio
+- python-multipart (0.0.22) - https://github.com/Kludex/python-multipart
+- tzdata (2025.3) - https://github.com/python/tzdata
+
+================================================================================
+BSD-3-Clause AND 0BSD AND MIT AND Zlib AND CC0-1.0
+================================================================================
+- numpy (2.4.2) - https://github.com/numpy/numpy
+
+================================================================================
+Python Software Foundation License
+================================================================================
+- pywin32 (311) - https://github.com/mhammond/pywin32
+
+================================================================================
+PSF-2.0
+================================================================================
+- typing_extensions (4.15.0) - https://github.com/python/typing_extensions
+
+================================================================================
+
+For detailed license information, please see:
+- MIT License: https://opensource.org/licenses/MIT
+- BSD License: https://opensource.org/licenses/BSD-2-Clause
+- BSD-3-Clause: https://opensource.org/licenses/BSD-3-Clause
+- Mozilla Public License 2.0: https://opensource.org/licenses/MPL-2.0
+- Apache-2.0: https://opensource.org/licenses/Apache-2.0
+- Python Software Foundation License: https://docs.python.org/3/license.html
+- PSF-2.0: https://opensource.org/license/psf-2-0
+
+The full text of these licenses can be found in the third-party-licenses directory.

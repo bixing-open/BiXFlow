@@ -1,0 +1,38 @@
+name: data_cleaning_analysis
+display_name: Data Cleaning and Analysis
+description: Clean, validate, analyze raw data and generate reports
+
+inputSchema:
+  type: object
+  properties:
+    raw_data:
+      type: array
+      description: "Raw data array"
+      default: []
+    validation_rules:
+      type: object
+      description: "Data validation rules"
+      default: {}
+    api_endpoints:
+      type: array
+      description: "List of API endpoints to monitor (optional)"
+      default: []
+  required:
+    - raw_data
+
+steps:
+  - name: comprehensive_analysis
+    tool: report_generator_mcp/comprehensive_analyzer
+    inputs:
+      raw_data: "{{ raw_data }}"
+      validation_rules: "{{ validation_rules }}"
+      api_endpoints: "{{ api_endpoints }}"
+    outputs: comprehensive_result
+
+  - name: format_comprehensive_report
+    tool: report_generator_mcp/formatter
+    inputs:
+      report_data: "{{ comprehensive_result }}"
+      format: "markdown"
+    outputs: formatted_report
+    when: "{{ comprehensive_result.status == 'done' }}"
