@@ -3,9 +3,9 @@
 ## Supported Versions
 
 | Version | Supported |
-|---------|-----------|
-| 1.0.x | ✅ Yes |
-| < 1.0 | ❌ No |
+| ------- | --------- |
+| 0.9.0   | ✅ Yes    |
+| < 0.9.0 | ❌ No     |
 
 ## Reporting a Vulnerability
 
@@ -94,12 +94,14 @@ pip install --upgrade -r requirements.txt
 ## Disclosure Policy
 
 We follow responsible disclosure:
+
 1. Report vulnerabilities privately
 2. Assess and develop a fix
 3. Coordinate public disclosure with you
 4. Credit reporters in security advisories
 
 Security advisories will be published via:
+
 - GitHub Security Advisories
 - Release notes
 - Project changelog
@@ -111,6 +113,7 @@ BiXFlow is licensed under the MIT License. This license does not include warrant
 ## Contact
 
 For security questions or concerns:
+
 - **Email**: bixing_support@chinamobile.com
 - **Subject**: [SECURITY] BiXFlow Security Inquiry
 
