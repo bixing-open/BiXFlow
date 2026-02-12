@@ -496,33 +496,6 @@ Please use meaningful commit messages following this format:
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for more details.
 
-### Third-Party Licenses
-
-BiXFlow incorporates various third-party libraries, each with their respective licenses. All third-party dependencies use permissive licenses that are compatible with the MIT License.
-
-For a complete list of third-party dependencies and their licenses, please refer to:
-
-- **[NOTICE](NOTICE)** - Attribution notice for all third-party dependencies
-- **[third-party-licenses/README.md](third-party-licenses/README.md)** - Detailed license information and compatibility analysis
-- **[licenses.json](licenses.json)** - Machine-readable license information
-
-### License Summary
-
-BiXFlow uses the following types of licenses for its dependencies:
-
-- **MIT License** - Most dependencies (27 libraries)
-- **BSD License (BSD-2-Clause)** - 6 libraries
-- **BSD-3-Clause** - 9 libraries
-- **Mozilla Public License 2.0 (MPL 2.0)** - 2 libraries
-- **Apache-2.0** - 3 libraries
-- **Apache-2.0 OR BSD-3-Clause** - 1 library
-- **Apache-2.0 OR BSD-2-Clause** - 1 library
-- **Multiple Permissive Licenses** (BSD-3-Clause AND 0BSD AND MIT AND Zlib AND CC0-1.0) - 1 library (numpy)
-- **Python Software Foundation License** - 1 library (pywin32)
-- **PSF-2.0** - 1 library (typing_extensions)
-
-All licenses are permissive and compatible with commercial use and distribution.
-
 ## Migration Guide
 
 If you're upgrading from an older version, please check our [Migration Guide](docs/migration_guide.md) to learn how to migrate to the latest version.
