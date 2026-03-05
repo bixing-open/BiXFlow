@@ -1,5 +1,5 @@
 # BiXFlow
-[![Featured in awesome-mcp-devtoos](https://img.shields.io/badge/Featured_in-awesome--mcp--devtoos-brightgreen?style=for-the-badge)](https://github.com/punkpeye/awesome-mcp-devtools)
+[![Featured in awesome-mcp-devtoos](https://img.shields.io/badge/Featured_in-awesome--mcp-orange)](https://github.com/punkpeye/awesome-mcp-devtools)
 [![PyPI version](https://badge.fury.io/py/BiXFlow.svg)](https://pypi.org/project/BiXFlow/)
 [![Python version](https://img.shields.io/badge/python-3.8%2B-blue.svg)](https://www.python.org/downloads/)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
