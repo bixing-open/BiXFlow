@@ -36,15 +36,15 @@ async def comprehensive_analyzer(
         # Create MCP client
         mcp_config = {
             "data_processor_mcp": {
-                "url": "http://localhost:8001/mcp/",
+                "url": "http://127.0.0.1:8001/mcp",
                 "transport": "streamable_http"
             },
             "monitor_alert_mcp": {
-                "url": "http://localhost:8002/mcp/",
+                "url": "http://127.0.0.1:8002/mcp",
                 "transport": "streamable_http"
             },
             "report_generator_mcp": {
-                "url": "http://localhost:8003/mcp/",
+                "url": "http://127.0.0.1:8003/mcp",
                 "transport": "streamable_http"
             }
         }

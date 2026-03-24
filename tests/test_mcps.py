@@ -13,7 +13,7 @@ class TestMCPServerTools:
         # Create actual MCP client instance, connecting to the started server
         client = MCPClient({
             "monitor_alert_mcp": {
-                "url": "http://localhost:8002/mcp/",
+                "url": "http://127.0.0.1:8002/mcp",
                 "transport": "streamable_http"
             }
         })
@@ -59,7 +59,7 @@ class TestMCPServerTools:
         # Create actual MCP client instance, connecting to the started server
         client = MCPClient({
             "data_processor_mcp": {
-                "url": "http://localhost:8001/mcp/",
+                "url": "http://127.0.0.1:8001/mcp",
                 "transport": "streamable_http"
             }
         })
@@ -117,7 +117,7 @@ class TestMCPServerTools:
         # Create actual MCP client instance, connecting to the started server
         client = MCPClient({
             "report_generator_mcp": {
-                "url": "http://localhost:8003/mcp/",
+                "url": "http://127.0.0.1:8003/mcp",
                 "transport": "streamable_http"
             }
         })

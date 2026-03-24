@@ -33,7 +33,7 @@ def test_comprehensive_analyzer_tool_exists() -> None:
     # Configure MCP client for report generator service
     config_dict = {
         "report_generator_mcp": {
-            "url": "http://localhost:8003/mcp/",
+            "url": "http://127.0.0.1:8003/mcp",
             "transport": "streamable_http"
         }
     }
@@ -70,15 +70,15 @@ async def test_comprehensive_analyzer_execution() -> None:
     # Configure MCP client with all required services
     config_dict = {
         "data_processor_mcp": {
-            "url": "http://localhost:8001/mcp/",
+            "url": "http://127.0.0.1:8001/mcp",
             "transport": "streamable_http"
         },
         "monitor_alert_mcp": {
-            "url": "http://localhost:8002/mcp/",
+            "url": "http://127.0.0.1:8002/mcp",
             "transport": "streamable_http"
         },
         "report_generator_mcp": {
-            "url": "http://localhost:8003/mcp/",
+            "url": "http://127.0.0.1:8003/mcp",
             "transport": "streamable_http"
         }
     }
@@ -172,15 +172,15 @@ async def test_data_cleaning_workflow_execution() -> None:
     # Configure BiXFlow executor with all required services
     config_dict = {
         "data_processor_mcp": {
-            "url": "http://localhost:8001/mcp/",
+            "url": "http://127.0.0.1:8001/mcp",
             "transport": "streamable_http"
         },
         "monitor_alert_mcp": {
-            "url": "http://localhost:8002/mcp/",
+            "url": "http://127.0.0.1:8002/mcp",
             "transport": "streamable_http"
         },
         "report_generator_mcp": {
-            "url": "http://localhost:8003/mcp/",
+            "url": "http://127.0.0.1:8003/mcp",
             "transport": "streamable_http"
         }
     }

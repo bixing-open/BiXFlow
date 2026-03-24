@@ -194,9 +194,11 @@ class BiXFlowProcessor:
         step = replace_vars_in_dict(step, self.context)
         if step.get('result') == 'error':
             message = step.get('message', '')
+            missing_vars = step.get('missing_vars', [])
+            context_hint = f" Available variables: {', '.join(get_leaf_key_paths(self.context))}" if missing_vars else ""
             yield {
                 'status': 'error',
-                'data': f"Error replacing variables in step {step_name}: {message}"
+                'data': f"Error replacing variables in step {step_name}: {message}{context_hint}"
             }
             return
         
@@ -512,37 +514,36 @@ class BiXFlowProcessor:
                     pass
 
             # Register output in context
-            register_key = step.get('outputs')
+            outputs_key = step.get('outputs')
                 
             # Handle outputs variable replacement in loops
-            if register_key and loop_context:
+            if outputs_key and loop_context:
                 # Replace outputs variable in loop context
-                processed_register = replace_vars_in_dict({'outputs': register_key}, loop_context)
-                if processed_register.get('result') != 'error':
-                    register_key = processed_register['outputs']
+                processed_outputs = replace_vars_in_dict({'outputs': outputs_key}, loop_context)
+                if processed_outputs.get('result') != 'error':
+                    outputs_key = processed_outputs['outputs']
             
             # For foreach loops, we don't save to global context here, let _execute_loop_step handle it
-            if 'foreach' in step and register_key:
+            if 'foreach' in step and outputs_key:
                 # For foreach loops, we only return result, don't save to global context
                 result['foreach_result'] = result_data
-                result['foreach_register_key'] = register_key
+                result['foreach_outputs_key'] = outputs_key
                 result['data'] = f"Step {step.get('name', 'Unnamed')} iteration {loop_context.get('loop_index', 0) + 1} completed"
                 logger = get_logger()
                 logger.info(f"\n===Current self.context:{self.context}")
                 
                 # But to ensure subsequent steps in loop can use it, we need to update loop_context
-                loop_context[register_key] = result_data
+                loop_context[outputs_key] = result_data
                 return result
             
             # Normal processing logic for non-foreach steps
-            if register_key:
-                deep_update(self.context, {register_key: result_data})
-                result['data'] += f"Saved output of step {step.get('name', 'Unnamed')} to variable {register_key}\n"
-                result['data'] += f"Available variables in current environment: {get_leaf_key_paths(self.context)}\n"
+            if outputs_key:
+                deep_update(self.context, {outputs_key: result_data})
+                result['data'] += f"Saved output of step {step.get('name', 'Unnamed')} to variable {outputs_key}\n"
                 logger = get_logger()
                 logger.info(f"\n===Current self.context:{self.context}")
                 # Add to output data
-                deep_update(self.output_data, {register_key: result_data})
+                deep_update(self.output_data, {outputs_key: result_data})
             else:
                 if not isinstance(result_data, dict):
                     result_data = {step.get('name', 'Unnamed'): result_data}
