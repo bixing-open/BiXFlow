@@ -2,25 +2,25 @@
   "data_processor_mcp": {
     "name": "data_processor_mcp",
     "timeout": 60,
-    "url": "http://localhost:8001/mcp/",
+    "url": "http://127.0.0.1:8001/mcp",
     "transport": "streamable_http"
   },
   "monitor_alert_mcp": {
     "name": "monitor_alert_mcp",
     "timeout": 60,
-    "url": "http://localhost:8002/mcp/",
+    "url": "http://127.0.0.1:8002/mcp",
     "transport": "streamable_http"
   },
   "report_generator_mcp": {
     "name": "report_generator_mcp",
     "timeout": 60,
-    "url": "http://localhost:8003/mcp/",
+    "url": "http://127.0.0.1:8003/mcp",
     "transport": "streamable_http"
   },
   "excel_processor_mcp": {
     "name": "excel_processor_mcp",
     "timeout": 60,
-    "url": "http://localhost:8004/mcp/",
+    "url": "http://127.0.0.1:8004/mcp",
     "transport": "streamable_http"
   }
 }
